@@ -1,6 +1,6 @@
 # Huntd E2E Test Framework
 
-An end-to-end test framework for the [Huntd](https://huntd.tech/) job board, built with Playwright and TypeScript. 85 tests covering guest browsing, candidate and recruiter onboarding, and profile editing; run locally, in Docker, or in CI.
+An end-to-end test framework for the [Huntd](https://huntd.tech/) job board, built with Playwright and TypeScript. 83 tests covering guest browsing, candidate and recruiter onboarding, and profile editing; run locally, in Docker, or in CI.
 
 [![E2E tests](https://github.com/vadymchan/huntd_e2e_framework/actions/workflows/e2e.yml/badge.svg)](https://github.com/vadymchan/huntd_e2e_framework/actions/workflows/e2e.yml)
 
@@ -18,7 +18,7 @@ Three real defects in the live product, each written up in [docs/bugs](docs/bugs
 
 Register suite failed under parallel runs: 31/50 at 16 workers. Three separate causes, not one: a navigation race, assertion timeouts sized for a backend slower under load, and a server capacity ceiling. Fixed each; `workers=2` documented as the stable default.
 
-Read-only tests moved to a shared auth setup instead of creating a user per test: 25/85 failures -> all green, runtime ~4x faster from the lower signup load.
+Read-only tests moved to a shared auth setup instead of creating a user per test: 25 failing tests -> all green, runtime ~4x faster from the lower signup load.
 
 The first candidate test went from intermittent to 5/5 on `--repeat-each=5` with no `waitForTimeout`, after fixing three root causes (ambiguous locator, the BUG-001 overlay, a third-party autocomplete race).
 
